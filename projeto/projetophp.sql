@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `produto` (
   INDEX `fk_produto_categoria_idx` (`categoria_id` ASC),
   CONSTRAINT `fk_produto_categoria`
     FOREIGN KEY (`categoria_id`)
-    REFERENCES `bancophp`.`categoria` (`id`)
+    REFERENCES `categoria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
