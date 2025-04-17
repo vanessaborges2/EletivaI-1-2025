@@ -58,3 +58,29 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE IF NOT EXISTS `categoria` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NOT NULL,
+  `descricao` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `bancophp`.`produto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `produto` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(255) NULL,
+  `descricao` VARCHAR(255) NULL,
+  `preco` DECIMAL(8,2) NULL,
+  `categoria_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_produto_categoria_idx` (`categoria_id` ASC),
+  CONSTRAINT `fk_produto_categoria`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `bancophp`.`categoria` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
