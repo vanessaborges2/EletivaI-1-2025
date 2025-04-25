@@ -25,6 +25,16 @@
     } elseif (isset($_GET['cadastro']) && $_GET['cadastro'] == false){
       echo '<p class="text-danger">Erro ao inserir o registro!</p>';
     }
+    if (isset($_GET['edicao']) && $_GET['edicao'] == true){
+      echo '<p class="text-success">Registro alterado com sucesso!</p>';
+    } elseif (isset($_GET['edicao']) && $_GET['edicao'] == false){
+      echo '<p class="text-danger">Erro ao alterar o registro!</p>';
+    }
+    if (isset($_GET['exclusao']) && $_GET['exclusao'] == true){
+      echo '<p class="text-success">Registro excluído com sucesso!</p>';
+    } elseif (isset($_GET['exclusao']) && $_GET['exclusao'] == false){
+      echo '<p class="text-danger">Erro ao excluir o registro!</p>';
+    }
 ?>
 
 <table class="table table-hover table-striped" id="tabela">
